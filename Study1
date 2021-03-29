@@ -1,0 +1,126 @@
+
+// 1. 스택/큐 정리
+
+
+  // a) Stack
+    
+   // - 프로그래밍에서 목록 혹은 리스트에서 접근이 한쪽에서만 가능한 구조
+   // - LIFO (Last-In, First-Out) 후입선출의 원리를 지니고 있음
+   // - 대표적인 내장 함수
+   //   - push, peek, pop
+   
+   
+   
+   // 구현 방법 (예제)
+   
+   //List를 사용하는 Class Stack 생성
+   
+   class Stack(list)
+   
+   // push 정의
+   // append : 하나의 배열에서 맨 뒤에 새로운 데이터를 삽입하는 함수
+   
+   push = list.append
+   
+   // peek 정의
+   
+   def peek(self):
+      self[len(self)-1]   // 배열의 인덱스는 0 부터 시작 하므로, 배열의 길이 -1을 통해 마지막 인덱스를 정의 할 수 있다.
+      
+   // pop 정의
+   
+      list.pop
+   
+        
+   // Stack 직접 구현 및 활용
+   
+    s = Stack() // 객체 생성
+    
+    s.push(1) //  list index [0]에 value 1 추가
+    s.push(5) //  list index [1]에 value 5 추가
+    s.push(10) // list index [2]에 value 10 추가
+    
+    print("my stack is : ", s)  // list 확인 [1, 5, 10]
+    print("popped value is : ", s.pop()) // pop을 통해 맨 마지막 index의 값을 뺀다.
+    print("my stack is : ", s) // [1, 5]
+    print("peeked value is : ",s.peek()) // peek을 통해 맨 마지막 index의 값을 확인한다. 5
+    print("my stack is : ", s) // [1, 5]
+    
+    
+    
+    //List를 스택으로 활용
+    
+    s = []
+    s.append(1)
+    s.append(5)
+    s.append(10)
+    print("my stack is: ", s) // [1, 5, 10]
+    print ("popped value is : ", s.pop()) // 10
+    print("my stack is: ", s) // [1, 5]
+    print("peeked value is : ", s[-1]) // 5
+    print("my stack is: ", s) // [1, 5]
+    
+    
+    
+    
+   // b) queue
+   
+   
+   // - 프로그래밍에서 목록 혹은 리스트에서 접근이 양쪽에서 가능한 구조
+   // - FIFO (First-In, First-Out) 선입선출의 원리를 지니고 있음
+   // - 대표적인 내장 함수
+      // - put, peek, get
+      
+   
+   // stack과의 차이점
+   
+      // 1. push vs put
+        // 두 함수 모두 뒷부분에 값이 있는 인덱스를 추가한다.
+      // 2. stack peek vs queue peek
+        // stack peek은 맨 마지막에 들어간 인덱스의 값을 확인
+        // queue peek은 맨 처음에 들어간 인덱스의 값을 확인
+      // 3. pop vs get
+        // pop은 맨 마지막에 들어간 인덱스를 제거
+        // get은 맨 처음에 들어간 인덱스를 제거
+    
+   
+   // queue 직접 구현
+   
+   // list를 가지고 있는 class queue 생성
+   class Queue(list)
+   
+    put = list.append
+    
+    def peek(self):
+      return self[0]
+      
+    def get(self):
+      return self.pop(0)
+      
+    // 객체 생성
+    q = Queue()
+    q.put(1)
+    q.put(5)
+    q.put(10)
+    print("my queue is : ", q)  [1, 5, 10]
+    print("removed value is : ", q.get()) // 1
+    print("my queue is : ", q) // [5, 10]
+    print("peeked value is : ", q.peek()) // peeked value is : 5
+    
+    
+    
+    // queue class import
+    
+    from queue import Queue
+    
+    q = Queue()
+    q.put(1)
+    q.put(5)
+    q.put(10)
+    print ("my queue is : ", q) [1, 5, 10]
+    print("removed value is : ", q.get()) // 1
+    print("my queue is : ", q) // [5, 10]
+    print("peeked value is : ", q.peek()) // peeked value is : 5
+    
+    
+    
